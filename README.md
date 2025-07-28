@@ -43,8 +43,7 @@ Cocok untuk toko donat, toko makanan ringan, atau bisnis kuliner berbasis pre-or
 ├── src/                  # Logika utama chatbot (ChatHandler, Logger, helper)
 ├── sql/                  # Struktur database (users, chat\_history, orders)
 ├── bootstrap.php         # Koneksi DB + autoload
-├── .env.example          # Contoh konfigurasi API Key & DB
-└── README.md
+├── README.md
 
 ````
 
@@ -112,6 +111,45 @@ Silakan fork dan kembangkan!
 Bila Anda membuat versi khusus (misalnya untuk toko kue, makanan, pre-order catering), mention repo ini ya 🙌
 
 ---
+
+## 🛠️ Modifikasi untuk Toko Lain (Pizza, Kopi, Roti, dll.)
+
+Chatbot ini sangat fleksibel dan **mudah dimodifikasi untuk berbagai jenis usaha kuliner**, seperti:
+
+### 🍕 Toko Pizza
+- Ganti daftar menu dengan varian pizza (ukuran, topping, crust)
+- Tambahkan opsi custom pizza (extra keju, saus, dll)
+- Hitung harga berdasarkan ukuran dan tambahan topping
+- Atur delivery fee sesuai zona
+
+### ☕ Coffee Shop
+- Ganti menu dengan minuman panas/dingin: espresso, latte, matcha, dll
+- Tambah varian ukuran (Tall, Grande, Venti)
+- Tambahkan promo: beli 2 gratis 1 atau diskon jam tertentu (happy hour)
+- Simpan preferensi pelanggan (manis, tanpa gula, extra shot)
+
+### 🍞 Toko Roti & Kue
+- Sesuaikan menu dengan paket roti, kue ulang tahun, dan hampers
+- Tambahkan fitur request tulisan di atas kue
+- Tentukan batas waktu pre-order (misal H-1)
+- Hitung ongkir berdasarkan bobot/volume pesanan
+
+### 🍱 Usaha Kuliner Lain (Catering, Food Truck, Bento, dll)
+- Chatbot dapat menjawab FAQ (jadwal buka, lokasi foodtruck, dll)
+- Sistem pemesanan pre-order / langganan mingguan
+- Hitung total sesuai paket makanan + biaya kirim
+- Integrasi pembayaran otomatis (manual, VA, QRIS)
+
+🧩 Anda hanya perlu mengubah:
+- Menu dan harga di bagian JSON produk
+- Aturan diskon dan promo di `ChatHandler.php`
+- Daftar ongkir di helper atau DB
+- Prompt dan instruksi di `defaultPrompt` atau di database
+
+
+---
+
+
 
 ## 📞 Kontak & Bantuan
 
