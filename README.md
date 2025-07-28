@@ -1,4 +1,4 @@
-Berikut adalah contoh **README.md** profesional untuk repository GitHub [`tokodonat_jlo`](https://github.com/kukuhtw/tokodonat_jlo), chatbot AI untuk toko donat:
+ **README.md**  repository GitHub [`tokodonat_jlo`](https://github.com/kukuhtw/tokodonat_jlo), chatbot AI untuk toko donat:
 
 ---
 
