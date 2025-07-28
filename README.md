@@ -1,6 +1,7 @@
  **README.md**  repository GitHub [`tokodonat_jlo`](https://github.com/kukuhtw/tokodonat_jlo), chatbot AI untuk toko donat:
 
 ---
+DEMO VIDEO: https://www.youtube.com/watch?v=LeuUivxtelQ
 
 ```markdown
 # 🍩 tokodonat_jlo — Chatbot AI Toko Donat Otomatis
