@@ -27,14 +27,54 @@ $success = null;
 
 
 // mapping database key → label dan input name (lower_snake_case)
+
+// Database key → label and input name mapping (lower_snake_case)
 $fields = [
-    'OPEN_AI_KEY'         => ['label' => 'OpenAI API Key',        'input' => 'openai_api_key',        'type' => 'password'],
-    'HOST_DOMAIN'         => ['label' => 'Host Domain',           'input' => 'host_domain',           'type' => 'text'],
-    'PINECONE_NAMESPACE'  => ['label' => 'Pinecone Namespace',    'input' => 'pinecone_namespace',    'type' => 'text'],
-    'PINECONE_API_KEY'    => ['label' => 'Pinecone API Key',      'input' => 'pinecone_api_key',      'type' => 'password'],
-    'PINECONE_INDEX_NAME' => ['label' => 'Pinecone Index Name',   'input' => 'pinecone_index_name',   'type' => 'text'],
-    'modelgpt'            => ['label' => 'Model GPT',             'input' => 'modelgpt',              'type' => 'text'],
+    'OPEN_AI_KEY' => [
+        'label' => 'OpenAI API Key',
+        'input' => 'openai_api_key',
+        'type' => 'password',
+        'placeholder' => 'Enter your OpenAI API key'
+    ],
+    'HOST_DOMAIN' => [
+        'label' => 'Host Domain',
+        'input' => 'host_domain',
+        'type' => 'text',
+        'placeholder' => 'e.g., http://yourdomain.com/'
+    ],
+    'PINECONE_NAMESPACE' => [
+        'label' => 'Pinecone Namespace',
+        'input' => 'pinecone_namespace',
+        'type' => 'text',
+        'placeholder' => 'Namespace prefix for Pinecone'
+    ],
+    'PINECONE_API_KEY' => [
+        'label' => 'Pinecone API Key',
+        'input' => 'pinecone_api_key',
+        'type' => 'password',
+        'placeholder' => 'Enter your Pinecone API key'
+    ],
+    'PINECONE_INDEX_NAME' => [
+        'label' => 'Pinecone Index Name',
+        'input' => 'pinecone_index_name',
+        'type' => 'text',
+        'placeholder' => 'Your Pinecone index name'
+    ],
+    'modelgpt' => [
+        'label' => 'Model GPT',
+        'input' => 'modelgpt',
+        'type' => 'text',
+        'placeholder' => 'e.g., gpt-4, gpt-3.5-turbo'
+    ],
+    'Token_Fonnte' => [
+        'label' => 'Fonnte API Token',
+        'input' => 'token_fonnte',
+        'type' => 'password',
+        'placeholder' => 'Enter your Fonnte WhatsApp API token'
+    ]
 ];
+
+
 
 // proses submit
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

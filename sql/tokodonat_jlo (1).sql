@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 28, 2025 at 12:05 PM
+-- Generation Time: Aug 03, 2025 at 01:57 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -45,13 +45,22 @@ CREATE TABLE `chat_history` (
   `json_response` text DEFAULT NULL,
   `chatdate` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
- 
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `document`
 --
+
+CREATE TABLE `document` (
+  `id` int(11) NOT NULL,
+  `judul` text NOT NULL,
+  `short_summary` text NOT NULL,
+  `path` text NOT NULL,
+  `url_location` text NOT NULL,
+  `upload_date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 -- --------------------------------------------------------
 
 --
@@ -73,24 +82,24 @@ CREATE TABLE `information` (
 --
 
 INSERT INTO `information` (`id`, `namespace`, `content_information`, `ispinecone`, `judul`, `lastupdate`, `regdate`) VALUES
-(1, 'tokodonat_', 'profil TokoDonat:\r\n\r\nTokoDonat\r\n📍 Alamat: Jl. Manis 123, Jakarta Selatan, Indonesia\r\n📅 Tahun Berdiri: 2015\r\n🌐 Website: www.tokodonat.id\r\n📧 Email: kontak@tokodonat.id\r\n📞 Telepon: +62-812-3456-7890\r\n📱 WhatsApp: Klik di sini\r\n\r\nVisi\r\nMenyajikan kebahagiaan melalui donat yang lezat, kreatif, dan berkualitas untuk semua kalangan.\r\n\r\nMisi\r\n\r\nMembuat donat dengan bahan baku terbaik dan resep yang inovatif.\r\nMemberikan pelayanan ramah dan pengalaman berbelanja yang menyenangkan.\r\nMenyediakan varian donat yang sesuai dengan selera pelanggan dari berbagai usia.', 1, 'profil TokoDonat:', '2025-07-26 13:53:22', '2024-12-12 13:04:24'),
-(2, 'tokodonat_', '[\r\n  {\r\n    \"category\": \"Classic Donuts\",\r\n    \"emoji\": \"🍩\",\r\n    \"description\": \"Donat original dengan taburan gula halus atau cokelat glaze. Favorit sepanjang masa untuk segala suasana.\"\r\n  },\r\n  {\r\n    \"category\": \"Premium Donuts\",\r\n    \"emoji\": \"🍩\",\r\n    \"description\": \"Varian rasa unik seperti Red Velvet, Matcha, dan Blueberry Cheese. Terbuat dari bahan premium untuk pengalaman rasa luar biasa.\"\r\n  },\r\n  {\r\n    \"category\": \"Donat Mini\",\r\n    \"emoji\": \"🍩\",\r\n    \"description\": \"Ukuran kecil untuk pesta atau acara keluarga. Pilihan rasa beragam, cocok untuk camilan ringan.\"\r\n  },\r\n  {\r\n    \"category\": \"Donat Khusus (Custom)\",\r\n    \"emoji\": \"🍩\",\r\n    \"description\": \"Donat berbentuk unik dengan dekorasi sesuai keinginan pelanggan. Cocok untuk ulang tahun, pernikahan, atau acara spesial.\"\r\n  }\r\n]', 1, 'Produk Unggulan', '2025-07-28 00:34:32', '2024-12-12 13:04:39'),
-(3, 'tokodonat_', 'Keunggulan TokoDonat\r\n✨ Bahan Berkualitas Tinggi: Menggunakan bahan alami tanpa pengawet.\r\n💡 Kreativitas Tanpa Batas: Varian rasa baru dirilis setiap bulan.\r\n📦 Layanan Pesan Antar: Pengantaran cepat dan aman langsung ke lokasi Anda.\r\n🎉 Catering untuk Acara: Paket donat khusus untuk pesta dan pertemuan.', 1, '', '2024-12-12 13:04:54', '2024-12-12 13:04:50'),
-(4, 'tokodonat_', '{\r\n  \"category\": \"Donat Khusus\",\r\n  \"products\": [\r\n    {\r\n      \"name\": \"Donat Custom per pcs\",\r\n      \"price\": 25000\r\n    },\r\n    {\r\n      \"name\": \"Paket Custom (6 pcs)\",\r\n      \"price\": 140000\r\n    },\r\n    {\r\n      \"name\": \"Paket Custom Ulang Tahun (12 pcs dengan dekorasi tema)\",\r\n      \"price\": 280000\r\n    }\r\n  ],\r\n  \"description\": \"Donat berbentuk unik dengan dekorasi sesuai permintaan. Cocok untuk ulang tahun, pernikahan, atau acara spesial.\"\r\n}', 1, 'Donat Khusus Custom', '2025-07-28 00:26:23', '2024-12-12 13:07:20'),
-(5, 'tokodonat_', '{\r\n  \"category\": \"Paket Combo\",\r\n  \"products\": [\r\n    {\r\n      \"name\": \"Classic Combo\",\r\n      \"contents\": \"3 Classic Donuts + 1 Kopi Susu\",\r\n      \"price\": 40000\r\n    },\r\n    {\r\n      \"name\": \"Premium Delight\",\r\n      \"contents\": \"2 Premium Donuts + 1 Matcha Latte\",\r\n      \"price\": 50000\r\n    },\r\n    {\r\n      \"name\": \"Family Treat\",\r\n      \"contents\": \"12 Donat Mini + 2 Minuman (Kopi atau Teh)\",\r\n      \"price\": 90000\r\n    }\r\n  ]\r\n}', 1, 'Paket Hemat Donat + Minuman', '2025-07-28 00:26:46', '2024-12-12 13:07:29'),
-(6, 'tokodonat_', '{\r\n  \"category\": \"Minuman Dingin\",\r\n  \"products\": [\r\n    { \"name\": \"Ice Tea\", \"price\": 12000 },\r\n    { \"name\": \"Lemon Tea\", \"price\": 15000 },\r\n    { \"name\": \"Iced Chocolate\", \"price\": 20000 },\r\n    { \"name\": \"Matcha Latte\", \"price\": 25000 }\r\n  ],\r\n  \"promotions\": [\r\n    {\r\n      \"buy\": {\r\n        \"product\": \"Matcha Latte\",\r\n        \"quantity\": 3\r\n      },\r\n      \"free\": {\r\n        \"product\": \"Iced Chocolate\",\r\n        \"quantity\": 1\r\n      },\r\n      \"description\": \"Beli 3 Matcha Latte gratis 1 Iced Chocolate\"\r\n    }\r\n  ]\r\n}', 1, 'Minuman Dingin', '2025-07-28 13:22:50', '2024-12-12 13:07:40'),
-(7, 'tokodonat_', '{\r\n  \"category\": \"Tambahan\",\r\n  \"products\": [\r\n    {\r\n      \"name\": \"Topping Premium (Cokelat, Keju, Matcha)\",\r\n      \"price\": 5000\r\n    },\r\n    {\r\n      \"name\": \"Box Cantik untuk Kado\",\r\n      \"price\": 10000\r\n    }\r\n  ]\r\n}', 1, 'Tambahan', '2025-07-28 00:28:09', '2024-12-12 13:07:48'),
-(9, 'tokodonat_', '{\r\n  \"delivery_fee\": 0,\r\n  \"areas\": [\r\n    \"Kelapa Gading Barat\", \"Kelapa Gading Timur\", \"Pegangsaan Dua\",\r\n    \"Bali Mester\", \"Bidara Cina\", \"Cipinang Besar Selatan\", \"Cipinang Besar Utara\", \r\n    \"Cipinang Cempedak\", \"Cipinang Muara\", \"Kampung Melayu\", \"Rawa Bunga\",\r\n    \"Balekambang\", \"Batu Ampar\", \"Cawang\", \"Cililitan\", \"Dukuh\", \"Kramat Jati\", \"Tengah\",\r\n    \"Cipinang Melayu\", \"Halim Perdana Kusuma\", \"Kebon Pala\", \"Makasar\", \"Pinang Ranti\",\r\n    \"Kayu Manis\", \"Kebon Manggis\", \"Pal Meriam\", \"Pisangan Baru\", \"Utan Kayu Selatan\", \"Utan Kayu Utara\"\r\n  ]\r\n}', 1, 'Biaya Delivery 0', '2025-07-28 00:30:20', '2024-12-12 14:00:08'),
-(10, 'tokodonat_', 'parkir 18 mobil, 50 motor. biaya rp 5000 untuk mobil , rp 1000 untuk motor', 1, 'info biaya parkir', '2025-07-26 14:24:52', '2025-07-26 14:02:17'),
-(14, 'tokodonat_', '{\r\n  \"category\": \"Donat Mini\",\r\n  \"products\": [\r\n    {\r\n      \"name\": \"Paket Mini\",\r\n      \"description\": \"Ukuran kecil, cocok untuk acara santai atau oleh-oleh.\",\r\n      \"price\": 60000,\r\n      \"unit\": \"12 pcs\"\r\n    }\r\n  ],\r\n  \"flavors\": [\r\n    \"Heaven Berry Copa\",\r\n    \"Banana Snow Coco\",\r\n    \"Avocado Clover\",\r\n    \"Grape Magic\",\r\n    \"Green Vie Domisses\",\r\n    \"Tiramisu Yummy\",\r\n    \"Chesse Black Clover\",\r\n    \"Blue Ocean Caviar\",\r\n    \"Oreo Domynuts\",\r\n    \"Rainbow Grizly\",\r\n    \"Cappucino Ball\"\r\n  ]\r\n}', 1, 'Donat Mini – Paket Mini (12 pcs): Rp60.000', '2025-07-28 00:25:23', '2025-07-27 23:23:40'),
-(15, 'tokodonat_', '{\r\n  \"category\": \"Classic Donuts\",\r\n  \"products\": [\r\n    {\r\n      \"name\": \"Ala Carte\",\r\n      \"description\": \"Donat original dengan taburan gula halus atau cokelat glaze.\",\r\n      \"price\": 10000,\r\n      \"unit\": \"1 pcs\"\r\n    },\r\n    {\r\n      \"name\": \"Paket Classic\",\r\n      \"description\": \"5 pcs + 1 gratis. Favorit sepanjang masa untuk segala suasana.\",\r\n      \"price\": 50000,\r\n      \"unit\": \"6 pcs\"\r\n    }\r\n  ],\r\n  \"flavors\": [\r\n    \"Coklat\", \"Strawberry\", \"Blueberry\", \"Cappucino\", \"Messes (coklat atau warna-warni)\"\r\n  ]\r\n}', 1, 'Classic Donuts', '2025-07-28 00:24:30', '2025-07-27 23:26:13'),
-(16, 'tokodonat_', '{\r\n  \"category\": \"Premium Donuts\",\r\n  \"products\": [\r\n    {\r\n      \"name\": \"Ala Carte\",\r\n      \"price\": 15000,\r\n      \"unit\": \"1 pcs\"\r\n    },\r\n    {\r\n      \"name\": \"Paket Premium\",\r\n      \"price\": 85000,\r\n      \"unit\": \"6 pcs\"\r\n    }\r\n  ],\r\n  \"description\": \"Varian rasa unik dengan bahan premium untuk pengalaman rasa luar biasa.\",\r\n  \"flavors\": [\"Red Velvet\", \"Matcha\", \"Blueberry Cheese\"]\r\n}', 1, 'Premium Donuts', '2025-07-28 00:25:03', '2025-07-27 23:26:59'),
-(17, 'tokodonat_', '{\r\n  \"category\": \"Kopi\",\r\n  \"products\": [\r\n    { \"name\": \"Kopi Hitam\", \"price\": 10000 },\r\n    { \"name\": \"Kopi Susu\", \"price\": 15000 },\r\n    { \"name\": \"Cappuccino\", \"price\": 20000 },\r\n    { \"name\": \"Caramel Latte\", \"price\": 25000 }\r\n  ]\r\n}', 1, 'Kopi', '2025-07-28 00:28:43', '2025-07-28 00:28:38'),
-(18, 'tokodonat_', '{\r\n  \"delivery_fee\": 5000,\r\n  \"areas\": [\r\n    \"Cilincing\", \"Kalibaru\", \"Marunda\", \"Rorotan\", \"Semper Barat\", \"Semper Timur\", \"Sukapura\",\r\n    \"Cempaka Putih Timur\", \"Cempaka Putih Barat\", \"Rawasari\",\r\n    \"Koja\", \"Rawa Badak Selatan\", \"Tugu Selatan\", \"Lagoa\", \"Rawa Badak Utara\", \"Tugu Utara\"\r\n  ]\r\n}', 1, 'Biaya Delivery 5000', '2025-07-28 00:31:14', '2025-07-28 00:31:09'),
-(19, 'tokodonat_', '{\r\n  \"delivery_fee\": 7500,\r\n  \"areas\": [\r\n    \"Kamal Muara\", \"Pejagalan\", \"Kapuk Muara\", \"Penjaringan\", \"Pluit\",\r\n    \"Ancol\", \"Pademangan Barat\", \"Pademangan Timur\"\r\n  ]\r\n}', 1, 'Biaya Delivery 7500', '2025-07-28 00:31:56', '2025-07-28 00:31:51'),
-(20, 'tokodonat_', '{\r\n  \"delivery_fee\": 12000,\r\n  \"areas\": [\r\n    \"Tanjung Priok\", \"Kebon Bawang\", \"Sungai Bambu\", \"Papanggo\",\r\n    \"Sunter Agung\", \"Sunter Jaya\", \"Warakas\"\r\n  ]\r\n}', 1, 'Biaya Delivery 12000', '2025-07-28 00:33:35', '2025-07-28 00:32:15'),
-(21, 'tokodonat_', '{\r\n  \"delivery_fee\": 15000,\r\n  \"areas\": [\r\n    \"Cipinang Jati\", \"Jatinegara Kaum\", \"Kayu Putih\", \"Pisangan Timur\", \"Pulo Gadung\", \"Rawamangun\",\r\n    \"Cakung Barat\", \"Cakung Timur\", \"Jatinegara\", \"Penggilingan\", \"Pulo Gebang\", \"Rawa Terate\", \"Ujung Menteng\",\r\n    \"Bambu Apus\", \"Ceger\", \"Cilangkap\", \"Cipayung\", \"Lubang Buaya\", \"Munjul\", \"Pondok Ranggon\", \"Setu\"\r\n  ]\r\n}', 1, 'Biaya Delivery 15000', '2025-07-28 00:33:39', '2025-07-28 00:32:32'),
-(22, 'tokodonat_', '{\r\n  \"delivery_fee\": 18000,\r\n  \"areas\": [\r\n    \"Cibubur\", \"Ciracas\", \"Kelapa Dua Wetan\", \"Rambutan\", \"Susukan\",\r\n    \"Duren Sawit\", \"Klender\", \"Malaka Jaya\", \"Malaka Sari\", \"Pondok Bambu\", \"Pondok Kelapa\", \"Pondok Kopi\"\r\n  ]\r\n}', 1, 'Biaya Delivery 18000', '2025-07-28 00:33:44', '2025-07-28 00:32:49');
+(1, 'tokodonat_', 'profil TokoDonat:\r\n\r\nTokoDonat\r\n📍 Alamat: Jl. Manis 123, Jakarta Selatan, Indonesia\r\n📅 Tahun Berdiri: 2015\r\n🌐 Website: www.tokodonat.id\r\n📧 Email: kontak@tokodonat.id\r\n📞 Telepon: +62-812-3456-7890\r\n📱 WhatsApp: Klik di sini\r\n\r\nVisi\r\nMenyajikan kebahagiaan melalui donat yang lezat, kreatif, dan berkualitas untuk semua kalangan.\r\n\r\nMisi\r\n\r\nMembuat donat dengan bahan baku terbaik dan resep yang inovatif.\r\nMemberikan pelayanan ramah dan pengalaman berbelanja yang menyenangkan.\r\nMenyediakan varian donat yang sesuai dengan selera pelanggan dari berbagai usia.', 0, 'profil TokoDonat:', '2025-07-26 13:53:22', '2024-12-12 13:04:24'),
+(2, 'tokodonat_', '[\r\n  {\r\n    \"category\": \"Classic Donuts\",\r\n    \"emoji\": \"🍩\",\r\n    \"description\": \"Donat original dengan taburan gula halus atau cokelat glaze. Favorit sepanjang masa untuk segala suasana.\"\r\n  },\r\n  {\r\n    \"category\": \"Premium Donuts\",\r\n    \"emoji\": \"🍩\",\r\n    \"description\": \"Varian rasa unik seperti Red Velvet, Matcha, dan Blueberry Cheese. Terbuat dari bahan premium untuk pengalaman rasa luar biasa.\"\r\n  },\r\n  {\r\n    \"category\": \"Donat Mini\",\r\n    \"emoji\": \"🍩\",\r\n    \"description\": \"Ukuran kecil untuk pesta atau acara keluarga. Pilihan rasa beragam, cocok untuk camilan ringan.\"\r\n  },\r\n  {\r\n    \"category\": \"Donat Khusus (Custom)\",\r\n    \"emoji\": \"🍩\",\r\n    \"description\": \"Donat berbentuk unik dengan dekorasi sesuai keinginan pelanggan. Cocok untuk ulang tahun, pernikahan, atau acara spesial.\"\r\n  }\r\n]', 0, 'Produk Unggulan', '2025-07-28 00:34:32', '2024-12-12 13:04:39'),
+(3, 'tokodonat_', 'Keunggulan TokoDonat\r\n✨ Bahan Berkualitas Tinggi: Menggunakan bahan alami tanpa pengawet.\r\n💡 Kreativitas Tanpa Batas: Varian rasa baru dirilis setiap bulan.\r\n📦 Layanan Pesan Antar: Pengantaran cepat dan aman langsung ke lokasi Anda.\r\n🎉 Catering untuk Acara: Paket donat khusus untuk pesta dan pertemuan.', 0, '', '2024-12-12 13:04:54', '2024-12-12 13:04:50'),
+(4, 'tokodonat_', '{\r\n  \"category\": \"Donat Khusus\",\r\n  \"products\": [\r\n    {\r\n      \"name\": \"Donat Custom per pcs\",\r\n      \"price\": 25000\r\n    },\r\n    {\r\n      \"name\": \"Paket Custom (6 pcs)\",\r\n      \"price\": 140000\r\n    },\r\n    {\r\n      \"name\": \"Paket Custom Ulang Tahun (12 pcs dengan dekorasi tema)\",\r\n      \"price\": 280000\r\n    }\r\n  ],\r\n  \"description\": \"Donat berbentuk unik dengan dekorasi sesuai permintaan. Cocok untuk ulang tahun, pernikahan, atau acara spesial.\"\r\n}', 0, 'Donat Khusus Custom', '2025-07-28 00:26:23', '2024-12-12 13:07:20'),
+(5, 'tokodonat_', '{\r\n  \"category\": \"Paket Combo\",\r\n  \"products\": [\r\n    {\r\n      \"name\": \"Classic Combo\",\r\n      \"contents\": \"3 Classic Donuts + 1 Kopi Susu\",\r\n      \"price\": 40000\r\n    },\r\n    {\r\n      \"name\": \"Premium Delight\",\r\n      \"contents\": \"2 Premium Donuts + 1 Matcha Latte\",\r\n      \"price\": 50000\r\n    },\r\n    {\r\n      \"name\": \"Family Treat\",\r\n      \"contents\": \"12 Donat Mini + 2 Minuman (Kopi atau Teh)\",\r\n      \"price\": 90000\r\n    }\r\n  ]\r\n}', 0, 'Paket Hemat Donat + Minuman', '2025-07-28 00:26:46', '2024-12-12 13:07:29'),
+(6, 'tokodonat_', '{\r\n  \"category\": \"Minuman Dingin\",\r\n  \"products\": [\r\n    { \"name\": \"Ice Tea\", \"price\": 12000 },\r\n    { \"name\": \"Lemon Tea\", \"price\": 15000 },\r\n    { \"name\": \"Iced Chocolate\", \"price\": 20000 },\r\n    { \"name\": \"Matcha Latte\", \"price\": 25000 }\r\n  ],\r\n  \"promotions\": [\r\n    {\r\n      \"buy\": {\r\n        \"product\": \"Matcha Latte\",\r\n        \"quantity\": 3\r\n      },\r\n      \"free\": {\r\n        \"product\": \"Iced Chocolate\",\r\n        \"quantity\": 1\r\n      },\r\n      \"description\": \"Beli 3 Matcha Latte gratis 1 Iced Chocolate\"\r\n    }\r\n  ]\r\n}', 0, 'Minuman Dingin', '2025-07-28 13:22:50', '2024-12-12 13:07:40'),
+(7, 'tokodonat_', '{\r\n  \"category\": \"Tambahan\",\r\n  \"products\": [\r\n    {\r\n      \"name\": \"Topping Premium (Cokelat, Keju, Matcha)\",\r\n      \"price\": 5000\r\n    },\r\n    {\r\n      \"name\": \"Box Cantik untuk Kado\",\r\n      \"price\": 10000\r\n    }\r\n  ]\r\n}', 0, 'Tambahan', '2025-07-28 00:28:09', '2024-12-12 13:07:48'),
+(9, 'tokodonat_', '{\r\n  \"delivery_fee\": 0,\r\n  \"areas\": [\r\n    \"Kelapa Gading Barat\", \"Kelapa Gading Timur\", \"Pegangsaan Dua\",\r\n    \"Bali Mester\", \"Bidara Cina\", \"Cipinang Besar Selatan\", \"Cipinang Besar Utara\", \r\n    \"Cipinang Cempedak\", \"Cipinang Muara\", \"Kampung Melayu\", \"Rawa Bunga\",\r\n    \"Balekambang\", \"Batu Ampar\", \"Cawang\", \"Cililitan\", \"Dukuh\", \"Kramat Jati\", \"Tengah\",\r\n    \"Cipinang Melayu\", \"Halim Perdana Kusuma\", \"Kebon Pala\", \"Makasar\", \"Pinang Ranti\",\r\n    \"Kayu Manis\", \"Kebon Manggis\", \"Pal Meriam\", \"Pisangan Baru\", \"Utan Kayu Selatan\", \"Utan Kayu Utara\"\r\n  ]\r\n}', 0, 'Biaya Delivery 0', '2025-07-28 00:30:20', '2024-12-12 14:00:08'),
+(10, 'tokodonat_', 'parkir 18 mobil, 50 motor. biaya rp 5000 untuk mobil , rp 1000 untuk motor', 0, 'info biaya parkir', '2025-07-26 14:24:52', '2025-07-26 14:02:17'),
+(14, 'tokodonat_', '{\r\n  \"category\": \"Donat Mini\",\r\n  \"products\": [\r\n    {\r\n      \"name\": \"Paket Mini\",\r\n      \"description\": \"Ukuran kecil, cocok untuk acara santai atau oleh-oleh.\",\r\n      \"price\": 60000,\r\n      \"unit\": \"12 pcs\"\r\n    }\r\n  ],\r\n  \"flavors\": [\r\n    \"Heaven Berry Copa\",\r\n    \"Banana Snow Coco\",\r\n    \"Avocado Clover\",\r\n    \"Grape Magic\",\r\n    \"Green Vie Domisses\",\r\n    \"Tiramisu Yummy\",\r\n    \"Chesse Black Clover\",\r\n    \"Blue Ocean Caviar\",\r\n    \"Oreo Domynuts\",\r\n    \"Rainbow Grizly\",\r\n    \"Cappucino Ball\"\r\n  ]\r\n}', 0, 'Donat Mini – Paket Mini (12 pcs): Rp60.000', '2025-07-28 00:25:23', '2025-07-27 23:23:40'),
+(15, 'tokodonat_', '{\r\n  \"category\": \"Classic Donuts\",\r\n  \"products\": [\r\n    {\r\n      \"name\": \"Ala Carte\",\r\n      \"description\": \"Donat original dengan taburan gula halus atau cokelat glaze.\",\r\n      \"price\": 10000,\r\n      \"unit\": \"1 pcs\"\r\n    },\r\n    {\r\n      \"name\": \"Paket Classic\",\r\n      \"description\": \"5 pcs + 1 gratis. Favorit sepanjang masa untuk segala suasana.\",\r\n      \"price\": 50000,\r\n      \"unit\": \"6 pcs\"\r\n    }\r\n  ],\r\n  \"flavors\": [\r\n    \"Coklat\", \"Strawberry\", \"Blueberry\", \"Cappucino\", \"Messes (coklat atau warna-warni)\"\r\n  ]\r\n}', 0, 'Classic Donuts', '2025-07-28 00:24:30', '2025-07-27 23:26:13'),
+(16, 'tokodonat_', '{\r\n  \"category\": \"Premium Donuts\",\r\n  \"products\": [\r\n    {\r\n      \"name\": \"Ala Carte\",\r\n      \"price\": 15000,\r\n      \"unit\": \"1 pcs\"\r\n    },\r\n    {\r\n      \"name\": \"Paket Premium\",\r\n      \"price\": 85000,\r\n      \"unit\": \"6 pcs\"\r\n    }\r\n  ],\r\n  \"description\": \"Varian rasa unik dengan bahan premium untuk pengalaman rasa luar biasa.\",\r\n  \"flavors\": [\"Red Velvet\", \"Matcha\", \"Blueberry Cheese\"]\r\n}', 0, 'Premium Donuts', '2025-07-28 00:25:03', '2025-07-27 23:26:59'),
+(17, 'tokodonat_', '{\r\n  \"category\": \"Kopi\",\r\n  \"products\": [\r\n    { \"name\": \"Kopi Hitam\", \"price\": 10000 },\r\n    { \"name\": \"Kopi Susu\", \"price\": 15000 },\r\n    { \"name\": \"Cappuccino\", \"price\": 20000 },\r\n    { \"name\": \"Caramel Latte\", \"price\": 25000 }\r\n  ]\r\n}', 0, 'Kopi', '2025-07-28 00:28:43', '2025-07-28 00:28:38'),
+(18, 'tokodonat_', '{\r\n  \"delivery_fee\": 5000,\r\n  \"areas\": [\r\n    \"Cilincing\", \"Kalibaru\", \"Marunda\", \"Rorotan\", \"Semper Barat\", \"Semper Timur\", \"Sukapura\",\r\n    \"Cempaka Putih Timur\", \"Cempaka Putih Barat\", \"Rawasari\",\r\n    \"Koja\", \"Rawa Badak Selatan\", \"Tugu Selatan\", \"Lagoa\", \"Rawa Badak Utara\", \"Tugu Utara\"\r\n  ]\r\n}', 0, 'Biaya Delivery 5000', '2025-07-28 00:31:14', '2025-07-28 00:31:09'),
+(19, 'tokodonat_', '{\r\n  \"delivery_fee\": 7500,\r\n  \"areas\": [\r\n    \"Kamal Muara\", \"Pejagalan\", \"Kapuk Muara\", \"Penjaringan\", \"Pluit\",\r\n    \"Ancol\", \"Pademangan Barat\", \"Pademangan Timur\"\r\n  ]\r\n}', 0, 'Biaya Delivery 7500', '2025-07-28 00:31:56', '2025-07-28 00:31:51'),
+(20, 'tokodonat_', '{\r\n  \"delivery_fee\": 12000,\r\n  \"areas\": [\r\n    \"Tanjung Priok\", \"Kebon Bawang\", \"Sungai Bambu\", \"Papanggo\",\r\n    \"Sunter Agung\", \"Sunter Jaya\", \"Warakas\"\r\n  ]\r\n}', 0, 'Biaya Delivery 12000', '2025-07-28 00:33:35', '2025-07-28 00:32:15'),
+(21, 'tokodonat_', '{\r\n  \"delivery_fee\": 15000,\r\n  \"areas\": [\r\n    \"Cipinang Jati\", \"Jatinegara Kaum\", \"Kayu Putih\", \"Pisangan Timur\", \"Pulo Gadung\", \"Rawamangun\",\r\n    \"Cakung Barat\", \"Cakung Timur\", \"Jatinegara\", \"Penggilingan\", \"Pulo Gebang\", \"Rawa Terate\", \"Ujung Menteng\",\r\n    \"Bambu Apus\", \"Ceger\", \"Cilangkap\", \"Cipayung\", \"Lubang Buaya\", \"Munjul\", \"Pondok Ranggon\", \"Setu\"\r\n  ]\r\n}', 0, 'Biaya Delivery 15000', '2025-07-28 00:33:39', '2025-07-28 00:32:32'),
+(22, 'tokodonat_', '{\r\n  \"delivery_fee\": 18000,\r\n  \"areas\": [\r\n    \"Cibubur\", \"Ciracas\", \"Kelapa Dua Wetan\", \"Rambutan\", \"Susukan\",\r\n    \"Duren Sawit\", \"Klender\", \"Malaka Jaya\", \"Malaka Sari\", \"Pondok Bambu\", \"Pondok Kelapa\", \"Pondok Kopi\"\r\n  ]\r\n}', 0, 'Biaya Delivery 18000', '2025-07-28 00:33:44', '2025-07-28 00:32:49');
 
 -- --------------------------------------------------------
 
@@ -107,6 +116,12 @@ CREATE TABLE `msadmin` (
 --
 -- Dumping data for table `msadmin`
 --
+
+INSERT INTO `msadmin` (`adminid`, `loginadmin`, `loginpassword`) VALUES
+(1, 'admin@designkaos.com', '$2y$10$ZVbYI8TLg8R7NeNJWnPzIuH6L348Z5zD21dnIPT251ysEhmKSHsA.'),
+(2, 'admin2@designkaos.com', '$2y$10$mPVE1hpXQYT8tI2Janh0BOueenU9Lb0ts0X3H/deLieTeoyNjdGFK'),
+(3, 'admin@admin.com', '$2y$10$fKcLUULL/f8uaoQq8Xwv/ey6/Iqn0f8tAm0a5YpmdJkuqs7J/0rm2');
+
 -- --------------------------------------------------------
 
 --
@@ -128,6 +143,10 @@ CREATE TABLE `order` (
 --
 -- Dumping data for table `order`
 --
+
+INSERT INTO `order` (`id`, `order_id`, `sender`, `order_description`, `order_date`, `ispaid`, `paid_date`, `note`, `json_order`) VALUES
+(1, 'ORD-3CD4ECA9', 'web_62812000078888', '{\n  \"order_id\": \"ORD-3CD4ECA9\",\n  \"order_date\": \"2024-06-13T09:00:00+07:00\",\n  \"customer\": {\n    \"name\": \"ANNE\",\n    \"email\": \"ANNE@ANNE.net\",\n    \"whatsapp\": \"0866888888\"\n  },\n  \"pickup_method\": \"Diantar\",\n  \"delivery_address\": \"Jl. Tangguh 61 no 7999, Kelurahan Pondok Kopi, Kecamatan Duren Sawit\",\n  \"delivery_fee\": 18000,\n  \"items\": [\n    {\n      \"product_name\": \"Premium Donut Red Velvet\",\n      \"quantity\": 1,\n      \"unit_price\": 15000,\n      \"total_price\": 15000,\n      \"variant_count\": 1,\n      \"variants\": [\n        { \"name\": \"Red Velvet\", \"quantity\": 1 }\n      ]\n    },\n    {\n      \"product_name\": \"Matcha Latte\",\n      \"quantity\": 3,\n      \"unit_price\": 25000,\n      \"total_price\": 75000,\n      \"variant_count\": 0,\n      \"variants\": []\n    },\n    {\n      \"product_name\": \"Iced Chocolate\",\n      \"quantity\": 1,\n      \"unit_price\": 0,\n      \"total_price\": 0,\n      \"variant_count\": 0,\n      \"variants\": [],\n      \"note\": \"Gratis (promo beli 3 Matcha Latte)\"\n    },\n    {\n      \"product_name\": \"Lemon Tea\",\n      \"quantity\": 2,\n      \"unit_price\": 15000,\n      \"total_price\": 30000,\n      \"variant_count\": 0,\n      \"variants\": []\n    }\n  ],\n  \"subtotal\": 120000,\n  \"tax_percent\": 11,\n  \"tax_amount\": 13200,\n  \"total_before_delivery\": 133200,\n  \"total_invoice\": 151200\n}', '2025-07-28 18:58:39', 0, '2025-07-28 18:58:39', '', '');
+
 -- --------------------------------------------------------
 
 --
@@ -166,12 +185,13 @@ CREATE TABLE `settings` (
 --
 
 INSERT INTO `settings` (`id`, `key`, `value`) VALUES
-(1, 'OPEN_AI_KEY', 's-YYYA'),
-(2, 'HOST_DOMAIN', 'http://localhost/tokodonat_jlo/'),
+(1, 'OPEN_AI_KEY', 'sk-'),
+(2, 'HOST_DOMAIN', 'https://yourdomain/yourfolder/'),
 (3, 'PINECONE_NAMESPACE', 'tokodonat_'),
-(4, 'PINECONE_API_KEY', 'pppp72bf'),
-(5, 'PINECONE_INDEX_NAME', 'S74a'),
-(6, 'modelgpt', 'gpt-4.1');
+(4, 'PINECONE_API_KEY', '872bf'),
+(5, 'PINECONE_INDEX_NAME', 'myindex-'),
+(6, 'modelgpt', 'gpt-4.1'),
+(10, 'Token_Fonnte', 'TokenFonnTeHere');
 
 -- --------------------------------------------------------
 
@@ -205,6 +225,8 @@ CREATE TABLE `users` (
 
 --
 -- Dumping data for table `users`
+--
+
 --
 -- Indexes for dumped tables
 --
@@ -266,7 +288,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `chat_history`
 --
 ALTER TABLE `chat_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=304;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `document`
@@ -290,7 +312,7 @@ ALTER TABLE `msadmin`
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `prompts`
@@ -302,13 +324,13 @@ ALTER TABLE `prompts`
 -- AUTO_INCREMENT for table `settings`
 --
 ALTER TABLE `settings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
